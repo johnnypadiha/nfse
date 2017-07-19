@@ -36,7 +36,8 @@ class UtilXml
 
    #sem o to_s da erro 400
   def gerar_nfse
-    self.cliente_soap.call(:gerar_nfse, message: { ArquivoXML: self.load_xml.to_s })
+    #puts load_xml
+    self.cliente_soap.call(:gerar_nfse, soap_action: "http://nfse.goiania.go.gov.br/ws/GerarNfse", message: { arquivo_xml: self.load_xml.to_s })
   end
 
   def main
